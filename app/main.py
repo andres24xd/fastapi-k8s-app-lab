@@ -9,7 +9,7 @@ r = redis.Redis(host=os.getenv("REDIS_HOST", "redis"), port=6379)
 @app.get("/")
 def read_root():
     r.incr("hits")
-    return {"message": "Hello World", "hits": int(r.get("hits") or 0)}
+    return {"message": "Hola Mundo, Ya entramos!", "hits": int(r.get("hits") or 0)}
 
 @app.get("/db")
 def db_check():
@@ -23,4 +23,4 @@ def db_check():
     cur.execute("SELECT 1")
     cur.close()
     conn.close()
-    return {"db": "ok"}
+    return {"db": "Todo Listo"}
